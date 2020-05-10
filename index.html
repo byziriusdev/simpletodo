@@ -2,21 +2,32 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>toDo List</title>
+        <title>to Do List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="main">
-            <h1>to Do List</h1>
+            <h1>TO DO LIST</h1>
             <form class="" action="index.html" method="POST">
                 <input type="text" placeholder="Add a new task!" name="task">
-                <button type="submit">Add</button>
+                <button type="submit"><strong>ADD</strong></button>
             </form>
-            <div class="tasksBoard">
+            <div class="tasks-board">
                 <p style="display: none">No tasks have been added yet! Are you sure that you don't have nothing to do?</p>
-                <ul></ul>
-                <a id="clear">Clear</a>
+                <ul>
+                    <!--
+                    <li>
+                        <span class="delete">X</span>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="taskText"><span>asdasdfasdfasdfasdfasdfasdfasdfasdfasdfsadfasdfasfdasdfasdf</span></div>
+                    </li>
+                    -->
+                </ul>
+                <a id="clear"><strong>CLEAR BOARD</strong></a>
             </div>
         </div>
         <script src="app.js"></script>
