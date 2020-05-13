@@ -59,10 +59,17 @@ function addTaskDOM(task, taskIndex) {
     let ul = document.querySelector('ul');
     let li = document.createElement('li');
 
-    li.innerHTML = `<input type="hidden" value="${taskIndex}"><span class="delete">Del</span><input type="checkbox"><label>${task.text}</label>`;
-
+    li.innerHTML = 
+    `<input type="hidden" value="${taskIndex}">
+    <span class="delete"></span>
+    <label class="custom-checkbox">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <div class="taskText"><span>${task.text}</span></div>`;
+    
     if(task.checked) {
-        li.querySelector('label').classList.add('task-checked');
+        li.querySelector('div').querySelector('span').classList.add('task-checked');
         li.querySelector('input[type="checkbox"]').checked = true;
     }
 
@@ -106,11 +113,15 @@ function deleteTask(e) {
 function tickTask(e) {
     let tasks = JSON.parse(localStorage.getItem('tasks'));
 
+    // task is the label
     const task  =  e.target.parentNode;
-    const taskIndex = task.querySelector('input[type="hidden"]').value;
 
-    // next sibling of checkbox is the task label
-    let taskLabel = task.querySelector('label');
+    // here task.parentNode would be the li element
+    const taskIndex = task.parentNode.querySelector('input[type="hidden"]').value;
+
+    
+    // 
+    let taskLabel = task.parentNode.querySelector('div').querySelector('span');
 
     if(e.target.checked) {
         taskLabel.classList.add('task-checked');
